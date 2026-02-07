@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\TicketComment;
 
-class TicketCommentController extends Controller
+class TicketCommentController
 {
     // Add a comment to a ticket
     public function store(Request $request, Ticket $ticket)

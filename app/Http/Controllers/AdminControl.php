@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class AdminControl extends Controller
+class AdminControl
 {
     public function summary()
     {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class DashboardController
 {
     public function index()
     {
