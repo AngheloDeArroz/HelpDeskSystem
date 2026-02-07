@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class SupportController extends Controller
+class SupportController
 {
     public function dashboard(Request $request)
     {

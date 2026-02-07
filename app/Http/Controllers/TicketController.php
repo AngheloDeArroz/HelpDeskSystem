@@ -7,7 +7,7 @@ use App\Models\Ticket;
 use App\Models\Priority;
 use Illuminate\Support\Facades\Auth;
 
-class TicketController extends Controller
+class TicketController
 {
     /**
      * Show the form to create a new ticket
