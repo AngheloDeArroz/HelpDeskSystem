@@ -1,0 +1,12 @@
+.git
+.env
+node_modules
+vendor
+public/build
+storage/*.key
+storage/logs/*.log
+bootstrap/cache/*.php
+docker-compose.override.yml
+.phpunit.result.cache
+# docker/
+
