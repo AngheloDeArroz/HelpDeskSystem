@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class SupportController extends Controller
+class SupportController
 {
     public function dashboard(Request $request)
     {
@@ -23,7 +23,8 @@ class SupportController extends Controller
                         $q->where('name', 'ILIKE', "%{$search}%");
                     })
                     ->orWhereHas('priority', function ($q) use ($search) {
-                        $q->where('name', 'ILIKE', "%{$search}%");
+                       
+                    $q->where('name', 'ILIKE', "%{$search}%");
                     })
                     ->orWhereHas('status', function ($q) use ($search) {
                         $q->where('name', 'ILIKE', "%{$search}%");
