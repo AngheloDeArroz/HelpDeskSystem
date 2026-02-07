@@ -17,7 +17,7 @@ class TicketsSeeder extends Seeder
         $users = User::whereHas('role', fn($q) => $q->where('name', 'User'))->get();
 
         foreach ($users as $user) {
-            for ($i = 1; $i <= 3; $i++) {
+            for ($i = 1; $i <= 2; $i++) {
                 Ticket::create([
                     'user_id' => $user->id,
                     'status_id' => $statuses->random()->id,

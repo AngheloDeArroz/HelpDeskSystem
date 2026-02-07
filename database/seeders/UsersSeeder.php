@@ -32,7 +32,7 @@ class UsersSeeder extends Seeder
         ]);
 
         // Create 5 normal users
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 2; $i++) {
             User::firstOrCreate([
                 'email' => "user{$i}@example.com"
             ], [
