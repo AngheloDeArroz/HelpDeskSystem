@@ -51,6 +51,29 @@
         @endif
 
         <div class="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
+            <div class="px-8 py-6 border-b border-gray-50 bg-gray-50/30">
+                <form action="{{ route('admin.dashboard') }}" method="GET" class="flex flex-col md:flex-row gap-4">
+                    <div class="relative flex-grow">
+                        <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </span>
+                        <input type="text" name="search" value="{{ request('search') }}" 
+                            placeholder="Search by subject, user, status or priority..."
+                            class="block w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-all text-sm font-medium">
+                    </div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="bg-gray-900 hover:bg-black text-white font-bold py-3 px-8 rounded-xl transition-all active:scale-95 text-xs uppercase tracking-widest">
+                            Search
+                        </button>
+                        @if(request('search'))
+                            <a href="{{ route('admin.dashboard') }}" class="bg-white border border-gray-200 text-gray-600 font-bold py-3 px-8 rounded-xl hover:bg-gray-50 transition-all text-xs uppercase tracking-widest flex items-center">
+                                Clear
+                            </a>
+                        @endif
+                    </div>
+                </form>
+            </div>
+
             <div class="overflow-x-auto">
                 <table class="w-full text-left">
                     <thead>

@@ -4,18 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class DashboardController
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
         $roleName = strtolower($user->role->name);
+        $search = $request->input('search');
 
         // Standard query excludes soft-deleted tickets by default
         $query = Ticket::with(['user', 'status', 'priority']);
 
         if ($roleName === 'admin') {
+            if ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('subject', 'ILIKE', "%{$search}%")
+                        ->orWhereHas('user', function ($q) use ($search) {
+                            $q->where('name', 'ILIKE', "%{$search}%");
+                        })
+                        ->orWhereHas('priority', function ($q) use ($search) {
+                            $q->where('name', 'ILIKE', "%{$search}%");
+                        })
+                        ->orWhereHas('status', function ($q) use ($search) {
+                            $q->where('name', 'ILIKE', "%{$search}%");
+                        });
+                });
+            }
+
             $tickets = $this->applyOrdering($query)->get();
             return view('admin.dashboard', compact('tickets'));
         }
