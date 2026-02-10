@@ -94,6 +94,3 @@ docker exec -it helpdesk-app php artisan db:seed
 - `resources/views/livewire`: Reactive UI components.
 - `docker/`: Nginx, Supervisor, and Entrypoint configurations.
 - `routes/web.php`: Role-protected route definitions.
-
----
-Built with ❤️ using the TALL Stack.
