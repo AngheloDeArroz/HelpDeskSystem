@@ -35,11 +35,7 @@ The easiest way to get the HelpDesk system running is using Docker.
 - A **Supabase** project for the PostgreSQL database.
 
 ### 2. Environment Configuration
-Copy the `.env.example` file to `.env` and fill in your Supabase connection details:
-
-```bash
-cp .env.example .env
-```
+Create `.env` and fill in your Supabase connection details:
 
 **Required Database Variables:**
 ```env
